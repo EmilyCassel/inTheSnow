@@ -1,0 +1,51 @@
+.html{
+    background-color: lightblue;
+}
+
+
+.h1{
+    display: flex;
+    justify-content: center;
+}
+
+.start{
+    border-style: solid;
+    border: 2px solid black;
+}
+
+
+
+.lead{
+
+}
+
+#currentCityWeather{
+    border-style: solid;
+    border: 2px solid black;
+
+}
+
+#searchButtons{
+    border-style: solid;
+    border: 2px solid black;
+    
+}
+
+#currentCityForecast{
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border: 2px solid black;
+}
+
+.parameters{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.blockObject{
+    flex-direction: row;
+}
+
+

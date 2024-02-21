@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=
     , initial-scale=1.0">
-    <link rel = "stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>inTheSnow</title>
 </head>
 <body>
     <header>
-        <h1>In The Snow Weather Dashboard</h1>
-        <p class="lead"></p>
-        <p id="currentDay" class="lead"></p>
-        <p id="currentTime" class="lead"></p>
-      
+        <h1 class="h1">In The Snow Weather Dashboard</h1>
+        <div class="start">
+            <p id="currentDay" class="lead"></p>
+            <p id="currentTime" class="lead"></p>
+        </div>
         <div id="currentCityWeather">
             <p id="cityName"></p>
-            <p id="currentTemperature">Temp: </p>
-            <p id="currentWind">Wind: </p>
-            <p id="currentHumidity">Humidity: </p>
+                <p id="currentTemperature">Temp: </p>
+                <p id="currentWind">Wind: </p>
+                <p id="currentHumidity">Humidity: </p>
+          
         </div>
     </header>
 
@@ -28,15 +29,13 @@
         <input type="text" id="searchCityInput" placeholder="Search City Name">
         <button id="searchCityButton">Search</button>
        
-        <div class="pastCitiesSearchedContainer"> 
-            <button class="pastCitiesButton"></button>
+        <div id="pastCitiesSearchedContainer"> 
+           
         </div>
     </div>
 
 
     <div id="currentCityForecast">
-        <div></div>
-
     </div>
 
 
