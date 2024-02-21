@@ -17,26 +17,32 @@ function getCurrentSearchCity(cityName) {
     let weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
     
     let forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
-
     $.get(weatherURL)
-        .then(function (weatherData) {
-            console.log("Weather Data:", weatherData);
-            changeCityBasics(weatherData, cityName);
-        });
+    .then(function (weatherData) {
+        changeCityBasics(weatherData, cityName);
+        saveSearchedCityToLocalStorage(searchedCity);
+        
+    });
 
 
-    $.get(forecastURL)
-        .then(function (forecastData) {
-            console.log("Forecast Data:", forecastData)
-            showCityForecast(forecastData)
-        });
+$.get(forecastURL)
+    .then(function (forecastData) {
+        showCityForecast(forecastData)
+    })
+    .catch((err) => {
+        alert("Please check your spelling")
+    });
+
 
 
 }
 
 function showCityForecast(forecastData) {
+
     //$() jquery get document by anything
-     let forecastDataContainer = $("#currentCityForecast")
+     let forecastDataContainer = document.getElementById('currentCityForecast')
+
+    forecastDataContainer.innerHTML = "";
 
     let blocks = forecastData.list
   
@@ -61,7 +67,7 @@ function showCityForecast(forecastData) {
             forecastHumidity.textContent = 'Humidity: ' + blocks[i].main.humidity + '%'
         };
         section.append(forecastDate, forecastImage, forecastTemp, forecastWind, forecastHumidity)
-        document.getElementById('currentCityForecast').append(section)
+        forecastDataContainer.append(section)
 
     }
 };
@@ -83,9 +89,17 @@ function showPastSearchedCities() {
     if (!citySearchHistory.length) {
         pastSearchedCitiesListElement.innerHTML = "<p>No Past Searched Cities</p>";
     }
-
+        let counter = 0
     citySearchHistory.forEach(cityName => {
-console.log(cityName)
+        let cityNameElement = document.createElement("button")
+
+        cityNameElement.addEventListener("click", function(){
+            getCurrentSearchCity(cityName)
+        }); 
+        
+        cityNameElement.textContent = cityName;
+        
+        pastSearchedCitiesListElement.append(cityNameElement)
     })
 }
 
@@ -107,7 +121,6 @@ function saveSearchedCityToLocalStorage(searchedCity) {
 $(document).ready(function () {
     
     let searchCityButton = $("#searchCityButton")
-    console.log('running')
     
     showPastSearchedCities();
     //    when we click button, whatever is in input box will console.logged
@@ -117,8 +130,6 @@ $(document).ready(function () {
         getCurrentSearchCity(searchedCity);
         
         showPastSearchedCities();
-
-        saveSearchedCityToLocalStorage(searchedCity);
     });
 
     const rightNow = dayjs();
