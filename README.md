@@ -20,7 +20,7 @@ Successes
 Directions for Future Development
 
 ## Description
-
+This app shows the current weather in the city searched as well as the coming forecast for the next 5 days. it also saves past searched cities as buttons so they can be clicked oo to easily bring up that information for the past searched city
 
 ## Motivation for Development
 The motivation for development was to create an easy to use weather application that allows the user to easily click on a past searched city and see the coming weather on the same page as the current weather for easy life planning. 
@@ -44,3 +44,9 @@ The completing of the showCityForecast function was a success. Another success w
 
 ## Directions for Future Development
 Set it up so that only 7 cities are available to be seen in the local storage but that cites can be saved at the bottom of the page by pinning them onto a users page this may require a login 
+
+
+
+
+
+https://emilycassel.github.io/inTheSnow/
